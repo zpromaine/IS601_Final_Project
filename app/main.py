@@ -40,9 +40,6 @@ from app.schemas.token import TokenResponse  # API token schema
 from app.schemas.user import UserCreate, UserResponse, UserLogin  # User schemas
 from app.database import Base, get_db, engine  # Database connection
 
-from app.routers import profile
-app.include_router(profile.router)
-
 # ------------------------------------------------------------------------------
 # Create tables on startup using the lifespan event
 # ------------------------------------------------------------------------------
@@ -71,6 +68,12 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan  # Pass our lifespan context manager
 )
+
+# Call the routers file for user update profile functionality
+
+from app.routers import profile
+app.include_router(profile.router)
+
 
 # ------------------------------------------------------------------------------
 # Static Files and Templates Configuration
