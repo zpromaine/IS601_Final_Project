@@ -40,6 +40,8 @@ from app.schemas.token import TokenResponse  # API token schema
 from app.schemas.user import UserCreate, UserResponse, UserLogin  # User schemas
 from app.database import Base, get_db, engine  # Database connection
 
+from app.routers import profile
+app.include_router(profile.router)
 
 # ------------------------------------------------------------------------------
 # Create tables on startup using the lifespan event
