@@ -38,6 +38,14 @@ class UserCreate(UserBase, PasswordMixin):
     """
     pass
 
+class UserUpdate(BaseModel):
+    first_name: str | None = None
+    last_name: str | None = None
+    email: EmailStr | None = None
+    username: str | None = None
+
+    model_config = ConfigDict(from_attributes=True)
+
 class UserLogin(BaseModel):
     """
     Schema for user login credentials.
@@ -45,3 +53,4 @@ class UserLogin(BaseModel):
     """
     username: str = Field(min_length=3, max_length=50, example="johndoe")
     password: str = Field(min_length=8, example="supersecretpassword")
+
