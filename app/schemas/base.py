@@ -46,6 +46,23 @@ class UserUpdate(BaseModel):
 
     model_config = ConfigDict(from_attributes=True)
 
+class PasswordChange(BaseModel):
+    old_password: str = Field(min_length=8)
+    new_password: str = Field(min_length=8)
+
+    @model_validator(mode="after")
+    def validate_new_password(self):
+        pwd = self.new_password
+        if not any(c.isupper() for c in pwd):
+            raise ValueError("New password must contain at least one uppercase letter")
+        if not any(c.islower() for c in pwd):
+            raise ValueError("New password must contain at least one lowercase letter")
+        if not any(c.isdigit() for c in pwd):
+            raise ValueError("New password must contain at least one digit")
+        return self
+
+    model_config = ConfigDict(from_attributes=True)
+
 class UserLogin(BaseModel):
     """
     Schema for user login credentials.
