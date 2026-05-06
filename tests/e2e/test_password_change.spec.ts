@@ -34,9 +34,9 @@ test("password change fails with incorrect current password", async ({ page }) =
 
     await page.goto("/profile/password");
 
-    await page.fill('input[name="current_password"]', "WrongPass123");
-    await page.fill('input[name="new_password"]', "AnotherPass123");
-    await page.fill('input[name="confirm_password"]', "AnotherPass123");
+    await page.fill('input[name="current_password"]', "e2etest");
+    await page.fill('input[name="new_password"]', "Password123!!");
+    await page.fill('input[name="confirm_password"]', "Password123!!");
     await page.click('button[type="submit"]');
 
     await expect(page.locator(".error-message")).toBeVisible();
