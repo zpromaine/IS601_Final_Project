@@ -166,6 +166,9 @@ def edit_calculation_page(request: Request, calc_id: str):
     """
     return templates.TemplateResponse("edit_calculation.html", {"request": request, "calc_id": calc_id})
 
+@app.get("/profile", response_class=HTMLResponse, tags=["web"])
+def profile_page(request: Request):
+    return templates.TemplateResponse("profile.html", {"request": request})
 
 # ------------------------------------------------------------------------------
 # Health Endpoint
