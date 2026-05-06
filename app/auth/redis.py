@@ -7,7 +7,7 @@ settings = get_settings()
 async def get_redis():
     if not hasattr(get_redis, "redis"):
         get_redis.redis = await aioredis.from_url(
-            settings.REDIS_URL or "redis://localhost"
+            settings.REDIS_URL or "redis://redis:6379/0"
         )
     return get_redis.redis
 

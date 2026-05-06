@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     CORS_ORIGINS: List[str] = ["*"]
     
     # Redis (optional, for token blacklisting)
-    REDIS_URL: Optional[str] = "redis://localhost:6379/0"
+    REDIS_URL: Optional[str] = "redis://redis:6379/0"
     
     class Config:
         env_file = ".env"
