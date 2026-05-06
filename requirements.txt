@@ -58,7 +58,7 @@ uvicorn==0.34.0
 redis==7.4.0
 
 # Security‑patched packages (compatible with Python 3.12)
-cryptography==46.0.5
+cryptography==42.0.5
 python-jose==3.4.0
 python-multipart==0.0.22
 urllib3==2.6.0
